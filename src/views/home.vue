@@ -1,7 +1,72 @@
 <template>
-  <div>123</div>
+  <el-row>
+    <el-col :span="4" class="on_page_sidebar">
+      <el-row class="tac">
+        <el-col :span="24">
+          <div class="mb-2">hirain</div>
+          <el-menu @open="handleOpen" @close="handleClose">
+            <el-sub-menu index="1">
+              <template #title>
+                <el-icon>
+                  <User />
+                </el-icon>
+                <span>用户中心</span>
+              </template>
+              <el-menu-item index="1-1">item one</el-menu-item>
+              <el-menu-item index="1-2">item two</el-menu-item>
+            </el-sub-menu>
+          </el-menu>
+        </el-col>
+      </el-row>
+    </el-col>
+    <el-col :span="20">2</el-col>
+  </el-row>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+  User
+} from '@element-plus/icons-vue'
 
-<style scoped></style>
+import {ref} from 'vue';
+
+let select_menu_item = ref(false)
+
+const handleOpen = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
+}
+const handleClose = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
+}
+</script>
+
+<style lang="scss">
+.on_page_sidebar {
+  margin: 0;
+  background-color: #222c3c;
+  height: 790px;
+
+  .tac {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 300;
+    font-family: Raleway;
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #2a3547;
+    color: #e6eaee;
+  }
+}
+
+.el-menu,
+.el-menu-item,
+.el-sub-menu__title {
+  border: none;
+  background-color: #222c3c;
+  color: #e6eaee;
+}
+
+.el-sub-menu__title:hover,.el-menu-item:hover {
+  background-color: #1d2531;
+}
+</style>

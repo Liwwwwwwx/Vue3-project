@@ -31,16 +31,16 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { useLoadStore }  from '@/store/load';
-import { useGlobalStore } from '@/store/global';
+import { useLoadStore } from "@/store/load";
+import { useGlobalStore } from "@/store/global";
 import { toRefs } from "vue";
 
-const router = useRouter()
-const load_store = useLoadStore()
-const global_store = useGlobalStore()
+const router = useRouter();
+const load_store = useLoadStore();
+const global_store = useGlobalStore();
 
-const { homeTitle } = global_store
-const { user } = toRefs(load_store)
+const { homeTitle } = global_store;
+const { user } = toRefs(load_store);
 
 function load() {
   router.push({
