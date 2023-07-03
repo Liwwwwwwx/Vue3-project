@@ -4,14 +4,14 @@
     <div class="load">
       <div class="logo"></div>
       <div class="name">
-        {{ programName }}
+        {{ homeTitle }}
       </div>
       <div class="loadInfo">
         <el-input
           class="info"
           placeholder="请输入用户名称"
           clearable
-          v-model="user.name"
+          v-model="user.userName"
         >
         </el-input>
         <el-input
@@ -19,7 +19,7 @@
           placeholder="请输入登录密码"
           show-password
           clearable
-          v-model="user.password"
+          v-model="user.passWord"
         >
         </el-input>
         <el-button @click="load" id="btn" type="primary">登录</el-button>
@@ -30,24 +30,24 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
 import { useRouter } from "vue-router";
+import { useLoadStore }  from '@/store/load';
+import { useGlobalStore } from '@/store/global';
+import { toRefs } from "vue";
 
-const router = useRouter();
+const router = useRouter()
+const load_store = useLoadStore()
+const global_store = useGlobalStore()
 
-let user = reactive({
-  name: "",
-  password: "",
-});
-
-let programName = "xxxx管理系统";
+const { homeTitle } = global_store
+const { user } = toRefs(load_store)
 
 function load() {
   router.push({
     path: "/home",
   });
 
-  window.sessionStorage.setItem("username", user.name);
+  window.sessionStorage.setItem("username", user.value.userName);
 }
 </script>
 
