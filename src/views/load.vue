@@ -44,7 +44,7 @@ const { user } = toRefs(load_store);
 
 function load() {
   router.push({
-    path: "/home",
+    path: "/localuser",
   });
 
   window.sessionStorage.setItem("username", user.value.userName);

@@ -12,32 +12,36 @@
                 </el-icon>
                 <span>用户中心</span>
               </template>
-              <el-menu-item index="1-1">item one</el-menu-item>
-              <el-menu-item index="1-2">item two</el-menu-item>
+              <router-link to="/localuser">
+                <el-menu-item index="1-1">Local User</el-menu-item>
+              </router-link>
+              <router-link to="/remoteuser">
+                <el-menu-item index="1-2">Remote User</el-menu-item>
+              </router-link>
             </el-sub-menu>
           </el-menu>
         </el-col>
       </el-row>
     </el-col>
-    <el-col :span="20">2</el-col>
+    <el-col :span="20">
+      <router-view />
+    </el-col>
   </el-row>
 </template>
 
 <script setup lang="ts">
-import {
-  User
-} from '@element-plus/icons-vue'
+import { User } from "@element-plus/icons-vue";
 
-import {ref} from 'vue';
+import { ref } from "vue";
 
-let select_menu_item = ref(false)
+let select_menu_item = ref(false);
 
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+  console.log(key, keyPath);
+};
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+  console.log(key, keyPath);
+};
 </script>
 
 <style lang="scss">
@@ -66,7 +70,8 @@ const handleClose = (key: string, keyPath: string[]) => {
   color: #e6eaee;
 }
 
-.el-sub-menu__title:hover,.el-menu-item:hover {
+.el-sub-menu__title:hover,
+.el-menu-item:hover {
   background-color: #1d2531;
 }
 </style>

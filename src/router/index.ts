@@ -9,6 +9,16 @@ var routes = [
   {
     path: "/home",
     component: () => import("../views/home.vue"),
+    children:[
+      {
+        path:"/localuser",
+        component: () => import("../views/users/local_user.vue")
+      },
+      {
+        path:"/remoteuser",
+        component: () => import("../views/users/remote_user.vue")
+      },
+    ]
   },
 ];
 
