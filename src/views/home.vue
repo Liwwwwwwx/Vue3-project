@@ -23,7 +23,8 @@
         </el-col>
       </el-row>
     </el-col>
-    <el-col :span="20">
+    <el-col class="content" :span="20">
+      <Title></Title>
       <router-view />
     </el-col>
   </el-row>
@@ -31,7 +32,7 @@
 
 <script setup lang="ts">
 import { User } from "@element-plus/icons-vue";
-
+import Title from '@/components/title.vue';
 import { ref } from "vue";
 
 let select_menu_item = ref(false);
@@ -60,6 +61,10 @@ const handleClose = (key: string, keyPath: string[]) => {
     border-bottom: 1px solid #2a3547;
     color: #e6eaee;
   }
+}
+
+.content {
+  padding: 15px;
 }
 
 .el-menu,
