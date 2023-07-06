@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { User } from "@element-plus/icons-vue";
-import Title from '@/components/title.vue';
+import Title from "@/components/title.vue";
 import { ref } from "vue";
 
 let select_menu_item = ref(false);

@@ -16,16 +16,14 @@
 </template>
 
 <script setup lang="ts">
-import { ElNotification as notify } from 'element-plus'
-import { useRoute, useRouter } from 'vue-router'
+import { ElNotification as notify } from "element-plus";
+import { useRoute, useRouter } from "vue-router";
 
-const router = useRouter()
-const route = useRoute()
-
-
+const router = useRouter();
+const route = useRoute();
 
 const onBack = () => {
-  notify('Back')
-  router.go(-1)
-}
+  notify("Back");
+  router.go(-1);
+};
 </script>

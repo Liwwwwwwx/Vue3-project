@@ -17,7 +17,7 @@ var routes = [
       {
         path: "/remoteuser",
         component: () => import("../views/users/remote_user.vue"),
-      }
+      },
     ],
   },
 ];
